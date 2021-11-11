@@ -13,7 +13,8 @@ import Accordion from 'react-bootstrap/Accordion'
 import FaqDataService from '../api/FaqDataService';
 import FormControlLabel from '@mui/material/FormControlLabel';
 import Switch from '@mui/material/Switch';
-
+import {SESSION_BUSINESS_INDUSTRY_NAME} from "../Constants";
+import AuthenticationService from "../api/AuthenticationService";
 
 
 
@@ -28,6 +29,7 @@ class GeneralFaq extends Component {
         this.state = {
             faq: [],
             faqDisplay: [],
+            userIndustry: sessionStorage.getItem(SESSION_BUSINESS_INDUSTRY_NAME),
             isEmpty: false,
             tagsSelected: {},
             options: [],
@@ -55,20 +57,31 @@ class GeneralFaq extends Component {
 
     createUserDisplay() {
         //get the logged in user's lamnguage and industry
-        let userIndustry = "F&B"; //todo: set based on the logged in user
+        let userIndustry = sessionStorage.getItem(SESSION_BUSINESS_INDUSTRY_NAME); //todo: set based on the logged in user
         let userLanguage = this.state.userLanguage ? "English" : "Chinese"
         let output = [];
         let idx = 0;
         console.log(this.state.faq);
+        console.log(this.state);
+
         //traverse through the faq list to find matches
         for (var faqCount in this.state.faq) {
             let faqItem = this.state.faq[faqCount];
             //if there is a match, add it to faqDisplay
             // console.log(faqItem.language);
             // console.log(faqItem.industry)
-            if (faqItem.language === userLanguage && faqItem.industry === userIndustry) {
-                output[idx] = faqItem;
-                idx++;
+            console.log(AuthenticationService.isUserLoggedIn())
+            if (AuthenticationService.isUserLoggedIn()) {
+                if (faqItem.language === userLanguage && faqItem.industry === userIndustry) {
+                    output[idx] = faqItem;
+                    idx++;
+                }
+            } else {
+                if (faqItem.language === userLanguage) {
+                    output[idx] = faqItem;
+                    idx++;
+                }
+
             }
         }
         //set the final list
