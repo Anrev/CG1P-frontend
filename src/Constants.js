@@ -1,5 +1,5 @@
 // API URL, use this only for authentication
-export const API_URL = "https://cg1p-backend.herokuapp.com"
+export const API_URL = "http://localhost:8080"
 
 // Session items
 export const SESSION_TOKEN = "userToken"

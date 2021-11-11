@@ -4,6 +4,7 @@ import HelloWorldService from '../api/HelloWorldService'
 import UserDataService from '../api/UserDataService'
 import TodoDataService from '../api/TodoDataService'
 import NewsDataService from '../api/NewsDataService'
+import { Link } from 'react-router-dom'
 
 import Card from 'react-bootstrap/Card';
 import Placeholder from 'react-bootstrap/Placeholder';
@@ -252,21 +253,27 @@ class WelcomeComponent extends Component {
 
                             <Card className="card" bg={variant.toLowerCase()} >
                                 <Card.Body>
-                                    <Card.Title className="text-danger">Employee Management</Card.Title>
+                                    <Link to={{ pathname: "https://www.straitstimes.com/singapore/health/spore-reports-2396-new-covid-19-cases-weekly-infection-growth-rate-at-087" }} target="_blank">
+                                        <Card.Title className="text-primary">Breaking News</Card.Title>
+                                    </Link>
                                     <Card.Text className="text-dark">
-                                        employee 123 has updated her status
+                                        S'pore reports 2,396 new Covid-19 cases and 8 deaths, weekly infection growth rate at 0.87
                                     </Card.Text>
                                 </Card.Body>
                             </Card>
+
+
 
                             <Placeholder xs={12} bg="transparent" />
 
 
                             <Card className="card" bg={variant.toLowerCase()} >
                                 <Card.Body>
-                                    <Card.Title className="text-warning">Todos</Card.Title>
+                                    <Link to={{ pathname: "https://www.channelnewsasia.com/singapore/updated-tracetogether-app-covid-19-vaccination-test-status-check-screen-2305991" }} target="_blank">
+                                        <Card.Title className="text-primary">Breaking News</Card.Title>
+                                    </Link>
                                     <Card.Text className="text-dark">
-                                        you have 5 undone task!
+                                        Updated TraceTogether app to show vaccination and test statuses on check-in screen
                                     </Card.Text>
                                 </Card.Body>
                             </Card>
@@ -282,7 +289,7 @@ class WelcomeComponent extends Component {
                                     <Card.Text>
                                         <h5 className="text-dark">
                                             <Card.Header>SHN Status: {this.state.shnStatus ? 'Yes' : 'No'}</Card.Header>
-                                            <FormControlLabel onClick={this.toggleShnStatus} control={<Switch color="warning" />} label=""/>
+                                            <FormControlLabel onClick={this.toggleShnStatus} control={<Switch color="warning" />} label="" />
 
                                         </h5>
                                         <h5 className="text-dark">

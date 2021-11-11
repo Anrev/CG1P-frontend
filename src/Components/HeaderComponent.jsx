@@ -53,7 +53,7 @@ class HeaderComponent extends Component {
 
         if (sessionStorage.getItem(SESSION_USER_ROLE) == "ROLE_EMPLOYEE") {
             isEmployee = true;
-        } 
+        }
 
         return (
             <header>
@@ -68,24 +68,24 @@ class HeaderComponent extends Component {
                             <Offcanvas.Body className="text-dark">
                                 <Row>
                                     <Col>
-                                    <iframe src="https://free.timeanddate.com/clock/i81r8hlp/n236/tlsg/fn6/fs20/fcfff/tc000/ftb/bacfff/pa8/tt0/tw1/th2/ta1/tb4" frameborder="0" width="368" height="68"></iframe>
+                                        <iframe src="https://free.timeanddate.com/clock/i81r8hlp/n236/tlsg/fn6/fs20/fcfff/tc000/ftb/bacfff/pa8/tt0/tw1/th2/ta1/tb4" frameborder="0" width="368" height="68"></iframe>
                                         <Card className="text-dark">
                                             {/* <Card.Img variant="top" src="holder.js/100px180" /> */}
                                             <Card.Text className="text-dark" >
                                                 <h4>
-                                                    {isUserLoggedIn && <Link className="nav-link" to="/welcome">Home</Link>}
-                                                    {isUserLoggedIn && !isEmployee && <Link className="nav-link" to="/emp">Employee Updates</Link>}
-                                                    {isUserLoggedIn && !isEmployee && <Link className="nav-link" to="/todos">Employee Tasks</Link>}
-                                                    {!isUserLoggedIn && <Link className="nav-link" to="/news">News</Link>}
-                                                    {isUserLoggedIn && <Link className="nav-link" to="/news">News</Link>}
-                                                    {!isUserLoggedIn && <Link className="nav-link" to="/login">Login</Link>}
-                                                    {!isUserLoggedIn && <Link className="nav-link" to="/signup">SignUp</Link>}
-                                                    {!isUserLoggedIn && <Link className="nav-link" to="/faq">FAQ</Link>}
-                                                    {isUserLoggedIn && <Link className="nav-link" to="/faq">FAQ</Link>}
-                                                    {!isUserLoggedIn && <Link className="nav-link" to="/aboutus">About Us</Link>}
-                                                    {isUserLoggedIn && <Link className="nav-link" to="/aboutus">About Us</Link>}
-                                                    {!isUserLoggedIn && <Link className="nav-link" to="/contactus">Contact Us</Link>}
-                                                    {isUserLoggedIn && <Link className="nav-link" to="/contactus">Contact Us</Link>}
+                                                    {isUserLoggedIn && <Link className="nav-link" to="/welcome" onClick={this.handleClose}>Home</Link>}
+                                                    {isUserLoggedIn && !isEmployee && <Link className="nav-link" to="/emp" onClick={this.handleClose}>Employee Updates</Link>}
+                                                    {isUserLoggedIn && !isEmployee && <Link className="nav-link" to="/todos" onClick={this.handleClose}>Employee Tasks</Link>}
+                                                    {!isUserLoggedIn && <Link className="nav-link" to="/login" onClick={this.handleClose}>Login</Link>}
+                                                    {!isUserLoggedIn && <Link className="nav-link" to="/signup" onClick={this.handleClose}>Sign Up</Link>}
+                                                    {!isUserLoggedIn && <Link className="nav-link" to="/news" onClick={this.handleClose}>News</Link>}
+                                                    {isUserLoggedIn && <Link className="nav-link" to="/news" onClick={this.handleClose}>News</Link>}
+                                                    {!isUserLoggedIn && <Link className="nav-link" to="/faq" onClick={this.handleClose}>FAQ</Link>}
+                                                    {isUserLoggedIn && <Link className="nav-link" to="/faq" onClick={this.handleClose}>FAQ</Link>}
+                                                    {!isUserLoggedIn && <Link className="nav-link" to="/aboutus" onClick={this.handleClose}>About Us</Link>}
+                                                    {isUserLoggedIn && <Link className="nav-link" to="/aboutus" onClick={this.handleClose}>About Us</Link>}
+                                                    {!isUserLoggedIn && <Link className="nav-link" to="/contactus" onClick={this.handleClose}>Contact Us</Link>}
+                                                    {isUserLoggedIn && <Link className="nav-link" to="/contactus" onClick={this.handleClose}>Contact Us</Link>}
                                                     {isUserLoggedIn && <Link className="nav-link" to="/logout" onClick={AuthenticationService.logout}>Logout</Link>}
                                                 </h4>
                                             </Card.Text>
